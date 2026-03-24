@@ -26,27 +26,11 @@ export interface Group {
 
 const PEOPLE: Person[] = [
   { id: "you", name: "Você", avatar: "🧑" },
-  { id: "ana", name: "Ana", avatar: "👩" },
-  { id: "carlos", name: "Carlos", avatar: "👨" },
-  { id: "julia", name: "Júlia", avatar: "👩‍🦰" },
-  { id: "marcos", name: "Marcos", avatar: "🧔" },
 ];
 
-const GROUPS: Group[] = [
-  { id: "house", name: "Casa", emoji: "🏠", members: ["you", "ana", "carlos"] },
-  { id: "trip", name: "Viagem SP", emoji: "✈️", members: ["you", "julia", "marcos"] },
-  { id: "dinner", name: "Jantares", emoji: "🍽️", members: ["you", "ana", "julia", "carlos"] },
-];
+const GROUPS: Group[] = [];
 
-const EXPENSES: Expense[] = [
-  { id: "1", description: "Aluguel março", amount: 3000, paidBy: "you", splitBetween: ["you", "ana", "carlos"], groupId: "house", date: "2026-03-20", category: "casa" },
-  { id: "2", description: "Supermercado", amount: 450, paidBy: "ana", splitBetween: ["you", "ana", "carlos"], groupId: "house", date: "2026-03-18", category: "alimentação" },
-  { id: "3", description: "Hotel", amount: 1200, paidBy: "you", splitBetween: ["you", "julia", "marcos"], groupId: "trip", date: "2026-03-15", category: "viagem" },
-  { id: "4", description: "Restaurante japonês", amount: 320, paidBy: "julia", splitBetween: ["you", "ana", "julia", "carlos"], groupId: "dinner", date: "2026-03-22", category: "alimentação" },
-  { id: "5", description: "Uber para aeroporto", amount: 85, paidBy: "marcos", splitBetween: ["you", "julia", "marcos"], groupId: "trip", date: "2026-03-14", category: "transporte" },
-  { id: "6", description: "Conta de luz", amount: 280, paidBy: "carlos", splitBetween: ["you", "ana", "carlos"], groupId: "house", date: "2026-03-10", category: "casa" },
-  { id: "7", description: "Pizza sexta", amount: 120, paidBy: "you", splitBetween: ["you", "ana", "julia", "carlos"], groupId: "dinner", date: "2026-03-21", category: "alimentação" },
-];
+const EXPENSES: Expense[] = [];
 
 export function useAppStore() {
   const [people] = useState<Person[]>(PEOPLE);
