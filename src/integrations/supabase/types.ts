@@ -14,7 +14,159 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      expense_splits: {
+        Row: {
+          amount: number
+          expense_id: string
+          id: string
+          user_id: string
+        }
+        Insert: {
+          amount: number
+          expense_id: string
+          id?: string
+          user_id: string
+        }
+        Update: {
+          amount?: number
+          expense_id?: string
+          id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "expense_splits_expense_id_fkey"
+            columns: ["expense_id"]
+            isOneToOne: false
+            referencedRelation: "expenses"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      expenses: {
+        Row: {
+          amount: number
+          category: string
+          created_at: string
+          date: string
+          description: string
+          group_id: string
+          id: string
+          paid_by: string
+        }
+        Insert: {
+          amount: number
+          category?: string
+          created_at?: string
+          date?: string
+          description: string
+          group_id: string
+          id?: string
+          paid_by: string
+        }
+        Update: {
+          amount?: number
+          category?: string
+          created_at?: string
+          date?: string
+          description?: string
+          group_id?: string
+          id?: string
+          paid_by?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "expenses_group_id_fkey"
+            columns: ["group_id"]
+            isOneToOne: false
+            referencedRelation: "groups"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      group_members: {
+        Row: {
+          group_id: string
+          id: string
+          joined_at: string
+          user_id: string
+        }
+        Insert: {
+          group_id: string
+          id?: string
+          joined_at?: string
+          user_id: string
+        }
+        Update: {
+          group_id?: string
+          id?: string
+          joined_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "group_members_group_id_fkey"
+            columns: ["group_id"]
+            isOneToOne: false
+            referencedRelation: "groups"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      groups: {
+        Row: {
+          created_at: string
+          created_by: string
+          emoji: string
+          id: string
+          name: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          created_by: string
+          emoji?: string
+          id?: string
+          name: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          created_by?: string
+          emoji?: string
+          id?: string
+          name?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          display_name: string | null
+          id: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          display_name?: string | null
+          id?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          display_name?: string | null
+          id?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
